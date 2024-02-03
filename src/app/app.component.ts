@@ -12,19 +12,19 @@ import ILineChartsDatas from './interfaces/ILineChartDatas';
 export class AppComponent implements OnInit {
 
   countryName : string = ""
-  YticksList : Observable<number[]> = of([0, 5 , 10, 15, 20]) // pipe
-  maxMedals : Observable<number | null> = of(null) // pipe
-  totalMedals : Observable<number | null> = of(null) // pipe
-  minYaxis : Observable<number | null> = of(null) // pipe
-  maxYaxis : Observable<number | null> = of(null) // pipe
+  // YticksList! : number[]
+  // maxMedals! : number
+  totalMedals! : number
+  minYaxis! : number
+  maxYaxis! : number
 
-  chartDatas$: Observable<ILineChartsDatas | null> = of(null)
+  chartDatas$!: Observable<ILineChartsDatas> // ! tell that the property will be assigned in OnInit
 
   constructor(private router:Router, private route: ActivatedRoute, private MockApiService : MockApiService){ }
 
   ngOnInit(): void {
 
-    this.countryName = "France"
+    this.countryName = "france"
     if(this.countryName == null) {
       this.router.navigateByUrl('/404') 
       return
@@ -32,6 +32,14 @@ export class AppComponent implements OnInit {
 
     this.chartDatas$ = this.MockApiService.getChartDatas$(this.countryName)
 
+    this.chartDatas$.subscribe(datas => {
+      const medalsList = datas.series?.map(serie => serie.value)
+      this.minYaxis = Math.floor((Math.min(...medalsList) / 10)) * 10
+      if(this.minYaxis < 0) this.minYaxis = 0
+      this.maxYaxis = Math.ceil((Math.max(...medalsList) / 10)) * 10
+      this.totalMedals = datas.series.reduce((acc, serie) => acc + serie.value, 0)
+    })
+    
   }
 
   title = 'FSPrj';
