@@ -1,4 +1,4 @@
-export interface ISingleEventStats {
+export default interface ISingleEventStats {
     id : number,
     year : number,
     city : string,
