@@ -7,12 +7,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MockApiService } from './mockapi.service';
+import { StringifyPipe } from './stringify.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    StringifyPipe,
   ],
   imports: [
     BrowserModule,
