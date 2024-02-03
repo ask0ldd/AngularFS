@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MockApiService } from './mockapi.service';
 import { StringifyPipe } from './stringify.pipe';
+import { HightlightDirective } from './hightlight.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { StringifyPipe } from './stringify.pipe';
     HeaderComponent,
     FooterComponent,
     StringifyPipe,
+    HightlightDirective,
   ],
   imports: [
     BrowserModule,

@@ -12,13 +12,11 @@ import ILineChartsDatas from './interfaces/ILineChartDatas';
 export class AppComponent implements OnInit {
 
   countryName : string = ""
-  // YticksList! : number[]
-  // maxMedals! : number
-  totalMedals! : number
+  totalMedals! : number // ! tell that the property will be assigned in OnInit
   minYaxis! : number
   maxYaxis! : number
 
-  chartDatas$!: Observable<ILineChartsDatas> // ! tell that the property will be assigned in OnInit
+  chartDatas$!: Observable<ILineChartsDatas>
 
   constructor(private router:Router, private route: ActivatedRoute, private MockApiService : MockApiService){ }
 
@@ -32,6 +30,7 @@ export class AppComponent implements OnInit {
 
     this.chartDatas$ = this.MockApiService.getChartDatas$(this.countryName)
 
+    // It's not necessary for the variables depending on observables to be observables themselves : https://angular.io/guide/comparing-observables
     this.chartDatas$.subscribe(datas => {
       const medalsList = datas.series?.map(serie => serie.value)
       this.minYaxis = Math.floor((Math.min(...medalsList) / 10)) * 10
@@ -39,7 +38,7 @@ export class AppComponent implements OnInit {
       this.maxYaxis = Math.ceil((Math.max(...medalsList) / 10)) * 10
       this.totalMedals = datas.series.reduce((acc, serie) => acc + serie.value, 0)
     })
-    
+
   }
 
   title = 'FSPrj';
