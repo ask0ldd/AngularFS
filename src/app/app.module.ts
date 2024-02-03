@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MockApiService } from './mockapi.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    MockApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

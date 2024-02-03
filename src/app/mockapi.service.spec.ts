@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MockapiService } from './mockapi.service';
+import { MockApiService } from './mockapi.service';
 
 describe('MockapiService', () => {
-  let service: MockapiService;
+  let service: MockApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MockapiService);
+    service = TestBed.inject(MockApiService);
   });
 
   it('should be created', () => {

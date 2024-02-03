@@ -7,7 +7,7 @@ import ILineChartsDatas from './interfaces/ILineChartDatas';
 @Injectable({
   providedIn: 'root'
 })
-export class MockapiService {
+export class MockApiService {
 
   BaseDatas : ICountryStats[] = []
   datasUrl = '../assets/datas.json'
@@ -28,7 +28,7 @@ export class MockapiService {
 
   getChartDatas$(c : string) : Observable<ILineChartsDatas>{
     return this.retrieveDatas$().pipe(
-        map((datas : ICountryStats[]) => {
+        map<ICountryStats[], ILineChartsDatas>((datas : ICountryStats[]) => {
           const selectedCDatas = datas.find((datas) => datas.country.toLowerCase() === c)
           if(selectedCDatas) return {name: c, series: selectedCDatas?.participations.map(participation => ({name : participation.year.toString(), value : participation.medalsCount}))}
           return {name : c, series : [{name : '', value : 0 }]}
