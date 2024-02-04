@@ -10,6 +10,8 @@ import { MockApiService } from './mockapi.service';
 import { StringifyPipe } from './stringify.pipe';
 import { HightlightDirective } from './hightlight.directive';
 import { HomeComponent } from './home/home.component';
+import { FormComponent } from './form/form.component';
+import { FormModule } from './form/form.module';
 
 @NgModule({
   declarations: [
