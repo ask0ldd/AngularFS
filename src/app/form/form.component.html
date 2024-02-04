@@ -1,12 +1,12 @@
 <body>
-    <!--<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>-->
-    <form [formGroup]="myForm">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <label>firstname</label>
-        <!--<input name="first" ngModel required #first="ngModel" />-->
         <input id="firstname" type="text" formControlName="firstname">
+        <p class="errorMessage">Error Message.</p>
         <label>lastname</label>
         <input name="last" type="text" formControlName="lastname"/>
-        <button>Submit</button>
+        <p class="errorMessage">Error Message.</p>
+        <button type="submit" [disabled]="!myForm.valid">Submit</button>
     </form>
 </body>
 

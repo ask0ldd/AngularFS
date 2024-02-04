@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,12 @@ export class LoginComponent {
 
   constructor() { }
 
-  onSubmit(form: NgForm) {
-    console.log('submit log')
+  loginForm = new FormGroup({
+    login : new FormControl('', [Validators.minLength(2), Validators.required]),
+    password : new FormControl('', [Validators.minLength(2), Validators.required])
+  })
+
+  onSubmit() {
+    console.log(this.loginForm.value)
   }
 }

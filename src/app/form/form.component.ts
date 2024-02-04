@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { FormValidatorService } from './form-validator.service';
 
 @Component({
@@ -12,13 +12,11 @@ export class FormComponent {
   constructor(private formValidator : FormValidatorService) { }
 
   myForm = new FormGroup({
-    firstname : new FormControl(''),
-    lastname : new FormControl('')
+    firstname : new FormControl('', [Validators.minLength(2), Validators.required]),
+    lastname : new FormControl('', [Validators.minLength(2), Validators.required])
   })
 
-  onSubmit(form: NgForm) {
-    console.log(form.value); // { first: '', last: '' }
-    console.log(form.valid); // false
-    // if(!this.formValidator.isName(form.value.first))  return
+  onSubmit() {
+    console.log(this.myForm.value)
   }
 }
