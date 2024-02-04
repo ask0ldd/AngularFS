@@ -24,10 +24,10 @@ import { FormModule } from './form/form.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     AuthModule,
     FormModule,
+    AppRoutingModule, // !!! at the bottom so '*' route don't override auth & form routes
   ],
   providers: [
     MockApiService

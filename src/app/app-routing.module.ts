@@ -4,7 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
-  {path: 'form', component: FormComponent}, // page by default
   {path: '**', component: HomeComponent},
 ];
 

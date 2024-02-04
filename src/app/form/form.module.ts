@@ -4,6 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormComponent } from './form.component';
 import { FormsModule } from '@angular/forms';
 import { FormValidatorService } from './form-validator.service';
+import { RouterModule, Routes } from '@angular/router';
+
+const formRoutes: Routes = [
+  {path: 'form', component: FormComponent},
+]
 
 @NgModule({
   declarations: [
@@ -13,6 +18,7 @@ import { FormValidatorService } from './form-validator.service';
     BrowserModule,
     CommonModule,
     FormsModule,
+    RouterModule.forChild(formRoutes),
   ],
   providers:[
     FormValidatorService,
