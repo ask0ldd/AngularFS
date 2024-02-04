@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormComponent } from './form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormValidatorService } from './form-validator.service';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -17,7 +17,7 @@ const formRoutes: Routes = [
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(formRoutes),
   ],
   providers:[

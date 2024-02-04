@@ -1,9 +1,11 @@
 <body>
-    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+    <!--<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>-->
+    <form [formGroup]="myForm">
         <label>firstname</label>
-        <input name="first" ngModel required #first="ngModel" />
+        <!--<input name="first" ngModel required #first="ngModel" />-->
+        <input id="firstname" type="text" formControlName="firstname">
         <label>lastname</label>
-        <input name="last" ngModel />
+        <input name="last" type="text" formControlName="lastname"/>
         <button>Submit</button>
     </form>
 </body>

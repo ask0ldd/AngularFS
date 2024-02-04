@@ -11,7 +11,6 @@ export class LoginComponent {
   constructor() { }
 
   onSubmit(form: NgForm) {
-    console.log(form.value); // { first: '', last: '' }
-    console.log(form.valid); // false
+    console.log('submit log')
   }
 }
