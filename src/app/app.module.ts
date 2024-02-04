@@ -10,9 +10,8 @@ import { MockApiService } from './mockapi.service';
 import { StringifyPipe } from './stringify.pipe';
 import { HightlightDirective } from './hightlight.directive';
 import { HomeComponent } from './home/home.component';
-import { FormComponent } from './form/form.component';
+import { AuthModule } from './auth/auth.module';
 import { FormModule } from './form/form.module';
-import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +21,13 @@ import { LoginComponent } from './auth/login/login.component';
     StringifyPipe,
     HightlightDirective,
     HomeComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AuthModule,
+    FormModule,
   ],
   providers: [
     MockApiService
