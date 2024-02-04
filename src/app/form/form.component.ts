@@ -7,5 +7,8 @@ import { NgForm, NgModel } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-
+  onSubmit(f: NgForm) {
+    console.log(f.value); // { first: '', last: '' }
+    console.log(f.valid); // false
+  }
 }
