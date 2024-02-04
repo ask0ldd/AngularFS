@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MockApiService } from './mockapi.service';
 import { StringifyPipe } from './stringify.pipe';
 import { HightlightDirective } from './hightlight.directive';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HightlightDirective } from './hightlight.directive';
     FooterComponent,
     StringifyPipe,
     HightlightDirective,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

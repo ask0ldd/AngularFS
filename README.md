@@ -37,6 +37,7 @@ Guards are used to add checks to restrict access to certain pages on a website, 
 ---
 
 ng pipes :
+
 feature that allows you to transform and format data directly in your templates. Pipes are simple functions used in template expressions to accept an input value and return a transformed value. They can be used to transform strings, currency amounts, dates, and other data for display. Angular comes with many built-in pipes, such as DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, PercentPipe, and DecimalPipe. Additionally, you can create custom pipes to suit your specific requirements. Pipes can be classified into pure pipes, which are called only when Angular detects a change in the input value, and impure pipes, which are called for every change detection cycle regardless of the change in the input fields
 
 ---
