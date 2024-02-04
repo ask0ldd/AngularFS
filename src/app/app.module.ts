@@ -12,6 +12,7 @@ import { HightlightDirective } from './hightlight.directive';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { FormModule } from './form/form.module';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormModule } from './form/form.module';
     StringifyPipe,
     HightlightDirective,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
