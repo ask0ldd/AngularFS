@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { FormValidatorService } from './form-validator.service';
 
 @Component({
   selector: 'app-form',
@@ -7,8 +8,12 @@ import { NgForm, NgModel } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  onSubmit(f: NgForm) {
-    console.log(f.value); // { first: '', last: '' }
-    console.log(f.valid); // false
+
+  constructor(private formValidator : FormValidatorService) { }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value); // { first: '', last: '' }
+    console.log(form.valid); // false
+    if(this.formValidator.isName(form.value.first)) console.log("valid data")
   }
 }
