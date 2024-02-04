@@ -1,7 +1,11 @@
 <body>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+        <label>login</label>
         <input name="login" ngModel required #login="ngModel" />
+        <p [hidden]="login.valid || login.pristine" class="errorMessage">Error Message.</p>
+        <label>password</label>
         <input name="password" ngModel required #password="ngModel" />
+        <p [hidden]="login.valid || login.pristine" class="errorMessage">Error Message.</p>
         <button>Submit</button>
     </form>
 </body>

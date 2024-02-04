@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import ICountryStats from './interfaces/ICountryStats';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import ILineChartsDatas from './interfaces/ILineChartDatas';
 
 @Injectable({
@@ -34,6 +34,10 @@ export class MockApiService {
           return {name : c, series : [{name : '', value : 0 }]}
         })
     )
+  }
+
+  login$() : Observable<{token : string}>{
+    return of({token : 'fakeToken'})
   }
 
   /*async retrieveBaseDatas(){

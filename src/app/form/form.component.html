@@ -1,6 +1,8 @@
 <body>
     <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+        <label>firstname</label>
         <input name="first" ngModel required #first="ngModel" />
+        <label>lastname</label>
         <input name="last" ngModel />
         <button>Submit</button>
     </form>
