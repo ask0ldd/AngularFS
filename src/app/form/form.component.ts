@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { FormValidatorService } from './form-validator.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { isName } from '../validators/isName.validator';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +9,9 @@ import { FormValidatorService } from './form-validator.service';
 })
 export class FormComponent {
 
-  constructor(private formValidator : FormValidatorService) { }
+  constructor() { 
+    console.log(this.myForm)
+  }
 
   myForm = new FormGroup({
     firstname : new FormControl('', [Validators.minLength(2), Validators.required]),
