@@ -14,8 +14,8 @@ export class FormComponent {
   }
 
   myForm = new FormGroup({
-    firstname : new FormControl('', [Validators.minLength(2), Validators.required]),
-    lastname : new FormControl('', [Validators.minLength(2), Validators.required])
+    firstname : new FormControl('', [Validators.minLength(2), Validators.required, isName]),
+    lastname : new FormControl('', [Validators.minLength(2), Validators.required, isName])
   })
 
   onSubmit() {

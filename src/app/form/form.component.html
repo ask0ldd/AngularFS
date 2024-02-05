@@ -2,10 +2,13 @@
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <label>firstname</label>
         <input id="firstname" type="text" formControlName="firstname">
-        <p *ngIf="myForm.get('firstname')?.invalid && (myForm.get('firstname')?.dirty || myForm.get('firstname')?.touched)" class="errorMessage">Error Message.</p>
+        <!--<p *ngIf="myForm.get('firstname')?.invalid && (myForm.get('firstname')?.dirty || myForm.get('firstname')?.touched)" class="errorMessage">Error Message.</p>-->
+        <p *ngIf="myForm.get('firstname')?.errors?.['required'] && (myForm.get('firstname')?.dirty || myForm.get('firstname')?.touched)" class="errorMessage">Required Field.</p>
+        <p *ngIf="myForm.get('firstname')?.errors?.['isName'] && (myForm.get('firstname')?.dirty || myForm.get('firstname')?.touched)" class="errorMessage">Field Value is not a Name.</p>
         <label>lastname</label>
         <input name="lastname" type="text" formControlName="lastname"/>
-        <p *ngIf="myForm.get('lastname')?.invalid && (myForm.get('lastname')?.dirty || myForm.get('lastname')?.touched)" class="errorMessage">Error Message.</p>
+        <p *ngIf="myForm.get('lastname')?.errors?.['required'] && (myForm.get('lastname')?.dirty || myForm.get('lastname')?.touched)" class="errorMessage">Required Field.</p>
+        <p *ngIf="myForm.get('lastname')?.errors?.['isName'] && (myForm.get('lastname')?.dirty || myForm.get('lastname')?.touched)" class="errorMessage">Field Value is not a Name.</p>
         <button type="submit" [disabled]="!myForm.valid">Submit</button>
     </form>
 </body>
