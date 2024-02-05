@@ -5,9 +5,10 @@ import { FormComponent } from './form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormValidatorService } from './form-validator.service';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from '../auth/auth.guard';
 
 const formRoutes: Routes = [
-  {path: 'form', component: FormComponent},
+  {path: 'form', component: FormComponent, canActivate:[authGuard]},
 ]
 
 @NgModule({
