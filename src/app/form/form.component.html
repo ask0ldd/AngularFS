@@ -2,10 +2,10 @@
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <label>firstname</label>
         <input id="firstname" type="text" formControlName="firstname">
-        <p class="errorMessage">Error Message.</p>
+        <p *ngIf="myForm.get('firstname')?.invalid && (myForm.get('firstname')?.dirty || myForm.get('firstname')?.touched)" class="errorMessage">Error Message.</p>
         <label>lastname</label>
-        <input name="last" type="text" formControlName="lastname"/>
-        <p class="errorMessage">Error Message.</p>
+        <input name="lastname" type="text" formControlName="lastname"/>
+        <p *ngIf="myForm.get('lastname')?.invalid && (myForm.get('lastname')?.dirty || myForm.get('lastname')?.touched)" class="errorMessage">Error Message.</p>
         <button type="submit" [disabled]="!myForm.valid">Submit</button>
     </form>
 </body>

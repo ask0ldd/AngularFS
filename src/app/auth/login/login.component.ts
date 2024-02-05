@@ -12,7 +12,7 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
     login : new FormControl('', [Validators.minLength(2), Validators.required]),
-    password : new FormControl('', [Validators.minLength(2), Validators.required])
+    password : new FormControl('', [Validators.minLength(8), Validators.required])
   })
 
   onSubmit() {
