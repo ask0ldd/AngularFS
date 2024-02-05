@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { MockApiService } from '../mockapi.service';
 
 const authRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -16,6 +17,9 @@ const authRoutes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(authRoutes),
+  ],
+  providers: [
+    MockApiService
   ],
 })
 export class AuthModule { }

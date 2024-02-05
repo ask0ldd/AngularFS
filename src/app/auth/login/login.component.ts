@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { map, take } from 'rxjs';
+import { MockApiService } from 'src/app/mockapi.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
-  constructor() { }
+  constructor(private mockApiService : MockApiService) { }
 
   loginForm = new FormGroup({
     login : new FormControl('', [Validators.minLength(2), Validators.required]),
@@ -17,5 +19,7 @@ export class LoginComponent {
 
   onSubmit() {
     console.log(this.loginForm.value)
+    // unsubscribe after getting the a value
+    this.mockApiService.login$().pipe(take(1)).subscribe(token => console.log(token))
   }
 }
