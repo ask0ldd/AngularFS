@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { map, take } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { take } from 'rxjs';
 import { MockApiService } from 'src/app/mockapi.service';
+import { CookiesService } from '../cookies.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { MockApiService } from 'src/app/mockapi.service';
 })
 export class LoginComponent {
 
-  constructor(private mockApiService : MockApiService) { }
+  constructor(private mockApiService : MockApiService, private cookiesService : CookiesService) { }
 
   loginForm = new FormGroup({
     login : new FormControl('', [Validators.minLength(2), Validators.required]),
@@ -20,6 +21,8 @@ export class LoginComponent {
   onSubmit() {
     console.log(this.loginForm.value)
     // unsubscribe after getting the a value
-    this.mockApiService.login$().pipe(take(1)).subscribe(token => console.log(token))
+    let returnedToken
+    this.mockApiService.login$().pipe(take(1)).subscribe(token => returnedToken = token.token )
+    if(returnedToken) this.cookiesService.setCookie({userId : 1 , email : "user1@temp.com", token : returnedToken})
   }
 }
