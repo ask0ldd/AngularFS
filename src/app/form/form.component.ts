@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { isName } from '../validators/isName.validator';
+import customValidators from '../validators/customValidators';
 
 @Component({
   selector: 'app-form',
@@ -14,8 +14,8 @@ export class FormComponent {
   }
 
   myForm = new FormGroup({
-    firstname : new FormControl('', [Validators.minLength(2), Validators.required, isName]),
-    lastname : new FormControl('', [Validators.minLength(2), Validators.required, isName])
+    firstname : new FormControl('', [Validators.minLength(2), Validators.required, customValidators.isName]),
+    lastname : new FormControl('', [Validators.minLength(2), Validators.required, customValidators.isName])
   })
 
   onSubmit() {
